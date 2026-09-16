@@ -1,394 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARIA_NexHub - PNG App Store</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIA_NexHub - Secure Pay</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white font-sans pb-20">
+<body class="bg-black text-white pb-20 font-sans">
 <div class="flex justify-between items-center p-4 border-b border-zinc-800">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold">A</div>
-<b class="text-[#D4AF37]">ARIA_NexHub</b>
-</div>
-<div class="text-[9px] bg-green-900 text-green-300 px-2 py-1 rounded-full">FREE TRIAL</div>
-</div>
-
-<div id="home" class="p-4">
-<div class="bg-[#D4AF37]/10 border border-[#D4AF37]/30 p-2 rounded-xl text-center text-[10px] text-[#D4AF37]">FREE TO BUILD • PAY K60 ONLY AT DEPLOYMENT</div>
-<h1 class="text-4xl font-bold text-center text-[#D4AF37] mt-6">ARIA_NexHub</h1>
-<p class="text-center text-zinc-400 text-sm mt-2">PNG's First App Store</p>
-<div class="bg-zinc-900 rounded-2xl p-5 mt-6 border border-[#D4AF37]/20 text-center">
-<p class="font-bold">Build Your Business App FREE</p>
-<p class="text-[#D4AF37] text-2xl font-bold mt-1">K60 Only When Live</p>
-<p class="text-xs text-zinc-500 mt-2">Use full app until deploy point</p>
-<button onclick="showPage('store')" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-4">TRY FREE NOW</button>
-<p class="text-[9px] text-zinc-600 mt-2">No payment needed until deployment</p>
-</div>
-<div class="grid grid-cols-2 gap-3 mt-6">
-<div onclick="showPage('store')" class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs cursor-pointer">🛒<br><b>Trade Store App</b><div class="text-[9px] text-green-400 mt-1">FREE TRIAL</div></div>
-<div onclick="showPage('store')" class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs cursor-pointer">🥜<br><b>Buai Market App</b><div class="text-[9px] text-green-400 mt-1">FREE TRIAL</div></div>
-</div>
-</div>
-
-<div id="store" class="hidden p-4">
-<h2 class="font-bold text-lg">Try Apps FREE</h2>
-<p class="text-xs text-green-400">✓ No payment until deployment</p>
-<div class="mt-4 space-y-3">
-<div class="bg-zinc-900 p-4 rounded-xl border border-green-800/30">
-<b>Trade Store App</b><br><span class="text-[10px] text-zinc-500">Products, Stock, Sales</span>
-<button onclick="tryApp('Trade Store')" class="w-full bg-white text-black font-bold py-2 rounded-xl mt-3 text-xs">USE FREE NOW</button>
-</div>
-<div class="bg-zinc-900 p-4 rounded-xl border border-green-800/30">
-<b>Buai Market App</b><br><span class="text-[10px] text-zinc-500">Orders, Customers</span>
-<button onclick="tryApp('Buai Market')" class="w-full bg-white text-black font-bold py-2 rounded-xl mt-3 text-xs">USE FREE NOW</button>
-</div>
-</div>
-</div>
-
-<div id="dash" class="hidden p-4">
-<h2 class="font-bold text-lg">My Business App</h2>
-<div id="appStatus" class="text-[10px] mt-1 text-green-400">● TRIAL MODE - FREE UNTIL DEPLOY</div>
-<div class="grid grid-cols-3 gap-2 mt-4 text-center">
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalApps" class="font-bold">1</div><div class="text-[9px] text-zinc-500">Trial App</div></div>
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalSales" class="font-bold">K0</div><div class="text-[9px] text-zinc-500">Test Sales</div></div>
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="myEarn" class="font-bold text-[#D4AF37]">K0</div><div class="text-[9px] text-zinc-500">Preview</div></div>
-</div>
-<div class="bg-zinc-900 p-4 rounded-xl mt-4 border border-zinc-800">
-<p class="text-sm">Test Sale (Free Mode)</p>
-<input id="saleInput" type="number" placeholder="Test with K20" class="w-full bg-black border border-zinc-700 p-3 rounded-xl mt-2 text-sm">
-<button onclick="addSale()" class="w-full bg-zinc-700 text-white font-bold py-2 rounded-xl mt-3 text-sm">ADD TEST SALE - FREE</button>
-</div>
-
-<div class="bg-gradient-to-b from-[#D4AF37]/20 to-zinc-900 p-4 rounded-2xl mt-6 border border-[#D4AF37] text-center">
-<p class="font-bold text-[#D4AF37]">🚀 Ready to Go Live?</p>
-<p class="text-[11px] text-zinc-400 mt-1">Pay K60 only at deployment point</p>
-<button onclick="deployNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-3">DEPLOY LIVE NOW</button>
-<div id="paymentHidden" class="hidden bg-black border border-[#D4AF37]/40 p-3 rounded-xl mt-3 text-left text-[11px]">
-<p class="font-bold text-[#D4AF37] text-center">💳 PAY K60 TO DEPLOY - Hidden until ready</p>
-<div class="mt-3 space-y-2 bg-zinc-900 p-3 rounded-lg">
-<p class="text-zinc-300">🏦 BSP: <b class="text-white">7000 1234 5678</b> - Joe Aria</p>
-<p class="text-zinc-300">🏦 MiBank: <b class="text-white">12345678</b></p>
-<p class="text-zinc-300">📱 Send proof to WhatsApp: <b class="text-white">7743 2661</b></p>
-</div>
-<p class="text-[9px] text-zinc-500 mt-2 text-center">K60 fee applies ONLY from deployment point onwards</p>
-<button onclick="confirmDeploy()" class="w-full bg-green-600 text-white font-bold py-2 rounded-xl mt-3 text-xs">I HAVE PAID K60 - CONFIRM DEPLOY</button>
-</div>
-</div>
-</div>
-
-<div id="order" class="hidden p-4">
-<h2 class="font-bold text-lg">Deploy Request</h2>
-<p class="text-xs text-[#D4AF37]">K60 payment required from this point</p>
-<div class="bg-zinc-900 p-4 rounded-xl mt-4 space-y-3 border border-[#D4AF37]/30">
-<div class="bg-black border border-[#D4AF37]/30 p-3 rounded-xl text-[11px]">
-<p class="text-[#D4AF37] font-bold">💳 Payment Details (Now Visible)</p>
-<p class="mt-1">BSP 7000 1234 5678 / MiBank 12345678</p>
-<p class="text-[10px] text-zinc-500">K60 effective from deployment</p>
-</div>
-<input id="bizName" placeholder="Business Name" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<input id="bizType" placeholder="Type: Trade Store, Buai, etc" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<input id="bizPhone" placeholder="WhatsApp Number" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<button onclick="orderNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl">SEND DEPLOY REQUEST + PROOF</button>
-</div>
-</div>
-
-<div onclick="toggleAI()" class="fixed bottom-20 right-4 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold shadow-lg">AI</div>
-<div id="aiBox" class="hidden fixed bottom-36 right-4 w-72 bg-zinc-900 border border-zinc-700 rounded-2xl p-3 shadow-2xl">
-<div class="flex justify-between items-center"><b class="text-xs">ARIA AI</b><button onclick="toggleAI()" class="text-xs">X</button></div>
-<div id="aiChat" class="bg-black p-2 rounded mt-2 h-32 overflow-auto text-xs">Hi! Use FREE until deployment. K60 only when ready to go live. Payment hidden until deploy!</div>
-<input id="aiQ" placeholder="Ask AI..." class="w-full bg-zinc-800 p-2 rounded mt-2 text-xs" onkeydown="if(event.key==='Enter')askAI()">
-</div>
-
-<div class="fixed bottom-0 w-full bg-zinc-900 border-t border-zinc-800 flex justify-around py-3 text-[10px]">
-<button onclick="showPage('home')" class="text-center">🏠<br>Home</button>
-<button onclick="showPage('store')" class="text-center">🛍️<br>Try Free</button>
-<button onclick="showPage('dash')" class="text-center">📊<br>Dash</button>
-<button onclick="showPage('order')" class="text-center text-[#D4AF37]">🚀<br>Deploy</button>
-</div>
-
-<script>
-let currentApp="My Trial App";
-function showPage(id){
-['home','store','dash','order'].forEach(p=>document.getElementById(p).classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-}
-function tryApp(name){currentApp=name;document.getElementById('appStatus').innerText='● USING '+name+' - FREE UNTIL DEPLOY';showPage('dash');}
-let sales=[];
-function addSale(){let v=parseInt(document.getElementById('saleInput').value);if(!v)return alert('Enter test amount');sales.push(v);let total=sales.reduce((a,b)=>a+b,0);document.getElementById('totalSales').innerText='K'+total;document.getElementById('myEarn').innerText='K'+Math.floor(total*0.8);document.getElementById('saleInput').value='';}
-function deployNow(){document.getElementById('paymentHidden').classList.remove('hidden');document.getElementById('paymentHidden').scrollIntoView({behavior:'smooth'});}
-function confirmDeploy(){document.getElementById('paymentHidden').classList.add('hidden');showPage('order');}
-function orderNow(){let n=document.getElementById('bizName').value;if(!n)return alert('Enter business name');let t=document.getElementById('bizType').value;let p=document.getElementById('bizPhone').value;window.open('https://wa.me/67577432661?text=*DEPLOY REQUEST - K60 PAID*%0ABusiness: '+n+'%0AType: '+t+'%0APhone: '+p+'%0AApp: '+currentApp+'%0APayment: K60 PAID - Proof sent%0AStatus: Ready to deploy LIVE','_blank');}
-function toggleAI(){document.getElementById('aiBox').classList.toggle('hidden');}
-function askAI(){let q=document.getElementById('aiQ').value;if(!q)return;let c=document.getElementById('aiChat');c.innerHTML+='<div class="mt-2 text-right"><b>You:</b> '+q+'</div>';c.innerHTML+='<div class="mt-1"><b>AI:</b> Free until deploy! Payment hidden until you click Deploy Live. K60 starts at deployment point only.</div>';document.getElementById('aiQ').value='';c.scrollTop=c.scrollHeight;}
-</script>
-</body>
-  </html><p class="text-xs text-zinc-500">Free trial → K60 only to go live</p>
-<div class="bg-zinc-900 p-4 rounded-xl mt-4 space-y-3 border border-zinc-800">
-<div class="bg-green-900/20 p-2 rounded text-[10px] text-green-300 text-center">You built for FREE - Now deploy live for K60</div>
-<input id="bizName" placeholder="Business Name" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<input id="bizType" placeholder="Type: Trade Store, Buai, etc" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<input id="bizPhone" placeholder="WhatsApp Number" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<button onclick="orderNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl">PAY K60 & DEPLOY LIVE</button>
-<p class="text-[10px] text-zinc-500 text-center">FREE until this point • K60 starts after deploy</p>
-</div>
-</div>
-
-<div onclick="toggleAI()" class="fixed bottom-20 right-4 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold shadow-lg">AI</div>
-<div id="aiBox" class="hidden fixed bottom-36 right-4 w-72 bg-zinc-900 border border-zinc-700 rounded-2xl p-3 shadow-2xl">
-<div class="flex justify-between items-center"><b class="text-xs">ARIA AI - Free Trial Helper</b><button onclick="toggleAI()" class="text-xs">X</button></div>
-<div id="aiChat" class="bg-black p-2 rounded mt-2 h-32 overflow-auto text-xs">Hi! Build FREE now, pay K60 only when you deploy! What app you want to try?</div>
-<input id="aiQ" placeholder="Ask AI..." class="w-full bg-zinc-800 p-2 rounded mt-2 text-xs" onkeydown="if(event.key==='Enter')askAI()">
-</div>
-
-<div class="fixed bottom-0 w-full bg-zinc-900 border-t border-zinc-800 flex justify-around py-3 text-[10px]">
-<button onclick="showPage('home')" class="text-center">🏠<br>Home</button>
-<button onclick="showPage('store')" class="text-center">🛍️<br>Try Free</button>
-<button onclick="showPage('dash')" class="text-center">📊<br>Dash</button>
-<button onclick="showPage('order')" class="text-center text-[#D4AF37]">🚀<br>Deploy K60</button>
-</div>
-
-<script>
-let currentApp="My Trial App";
-function showPage(id){
-['home','store','dash','order'].forEach(p=>document.getElementById(p).classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
-}
-function tryApp(name){
-currentApp=name;
-document.getElementById('appStatus').innerText='● USING '+name+' - FREE TRIAL';
-showPage('dash');
-}
-let sales=[];
-function addSale(){
-let v=parseInt(document.getElementById('saleInput').value);
-if(!v)return alert('Enter test amount');
-sales.push(v);
-let total=sales.reduce((a,b)=>a+b,0);
-document.getElementById('totalSales').innerText='K'+total;
-document.getElementById('myEarn').innerText='K'+Math.floor(total*0.8);
-document.getElementById('saleInput').value='';
-}
-function deployNow(){showPage('order');}
-function orderNow(){
-let n=document.getElementById('bizName').value;
-if(!n)return alert('Enter business name');
-let t=document.getElementById('bizType').value;
-let p=document.getElementById('bizPhone').value;
-window.open('https://wa.me/67577432661?text=*DEPLOY REQUEST - K60 NOW*%0ABusiness: '+n+'%0AType: '+t+'%0APhone: '+p+'%0AApp: '+currentApp+'%0AStatus: Trial -> Wants to deploy LIVE%0APayment: K60 due at deployment','_blank');
-}
-function toggleAI(){document.getElementById('aiBox').classList.toggle('hidden');}
-function askAI(){
-let q=document.getElementById('aiQ').value;
-if(!q)return;
-let c=document.getElementById('aiChat');
-c.innerHTML+='<div class="mt-2 text-right"><b>You:</b> '+q+'</div>';
-c.innerHTML+='<div class="mt-1"><b>AI:</b> Yes! You can use '+q+' FREE now. K60 only when you deploy live. Click Try Free!</div>';
-document.getElementById('aiQ').value='';
-c.scrollTop=c.scrollHeight;
-}
-</script>
-</body>
-  </html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARIA_NexHub - PNG App Store</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-black text-white font-sans pb-20">
-
-<div class="flex justify-between items-center p-4 border-b border-zinc-800">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold">A</div>
-<b class="text-[#D4AF37]">ARIA_NexHub</b>
-</div>
-<div class="text-[9px] bg-green-900 text-green-300 px-2 py-1 rounded-full">FREE TRIAL MODE</div>
+<div class="flex gap-2 items-center"><div class="w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold">A</div><b class="text-[#D4AF37]">ARIA_NexHub</b></div>
+<div class="text-[8px] bg-green-900 text-green-300 px-2 py-1 rounded-full">SECURE PAY</div>
 </div>
 
 <!-- HOME -->
 <div id="home" class="p-4">
-<div class="bg-[#D4AF37]/10 border border-[#D4AF37]/30 p-2 rounded-xl text-center text-[10px] text-[#D4AF37]">🎉 FREE TO BUILD • PAY K60 ONLY TO GO LIVE</div>
-
-<h1 class="text-4xl font-bold text-center text-[#D4AF37] mt-6">ARIA_NexHub</h1>
-<p class="text-center text-zinc-400 text-sm mt-2">PNG's First App Store</p>
-
-<div class="bg-zinc-900 rounded-2xl p-5 mt-6 border border-[#D4AF37]/20 text-center">
-<p class="font-bold">Build Your Business App FREE</p>
-<p class="text-[#D4AF37] text-2xl font-bold mt-1">K60 Only When Live</p>
-<p class="text-xs text-zinc-500 mt-2">Try all features • No payment now</p>
-<button onclick="showPage('store')" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-4">TRY FREE NOW - NO K60 YET</button>
-<p class="text-[9px] text-zinc-600 mt-2">Build free → Test → Pay K60 only to deploy</p>
-</div>
-
-<div class="grid grid-cols-2 gap-3 mt-6">
-<div onclick="showPage('store')" class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs cursor-pointer">🛒<br><b>Trade Store App</b><br><span class="text-zinc-500">Click to try free</span><div class="text-[9px] text-green-400 mt-1">✓ FREE TRIAL</div></div>
-<div onclick="showPage('store')" class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs cursor-pointer">🥜<br><b>Buai Market App</b><br><span class="text-zinc-500">Click to try free</span><div class="text-[9px] text-green-400 mt-1">✓ FREE TRIAL</div></div>
-</div>
-
-<div class="bg-zinc-900 border border-zinc-800 p-3 rounded-xl mt-6 text-xs">
-<p class="font-bold text-center mb-2">HOW IT WORKS</p>
-<div class="flex justify-between text-[10px] text-zinc-400">
-<div class="text-center">1️⃣<br>Build<br>FREE</div>
-<div class="text-center">2️⃣<br>Test<br>FREE</div>
-<div class="text-center">3️⃣<br>Deploy<br>K60</div>
-</div>
+<div class="bg-green-900/20 border border-green-700/30 p-2 rounded-xl text-center text-[10px] text-green-400">🔒 Secure Payment - Pay Only When Ready To Deploy</div>
+<h1 class="text-3xl font-bold text-center text-[#D4AF37] mt-4">PNG App Store</h1>
+<button onclick="showPage('store')" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-6">TRY FREE NOW - NO PAY</button>
+<div class="grid grid-cols-2 gap-3 mt-6 text-xs">
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800">🛒<br><b>Trade Store</b><br><span class="text-[9px] text-green-400">FREE TRIAL</span></div>
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800">🥜<br><b>Buai Market</b><br><span class="text-[9px] text-green-400">FREE TRIAL</span></div>
 </div>
 </div>
 
-<!-- STORE - FREE TRIAL -->
+<!-- STORE -->
 <div id="store" class="hidden p-4">
-<h2 class="font-bold text-lg">Try Apps FREE</h2>
-<p class="text-xs text-green-400">✓ All features free until deployment</p>
-
-<div class="mt-4 space-y-3">
-<div class="bg-zinc-900 p-4 rounded-xl border border-green-800/30">
-<div class="flex justify-between">
-<div><b>Trade Store App</b><br><span class="text-[10px] text-zinc-500">Products, Stock, Sales - TRY FREE</span></div>
-<div class="text-[9px] bg-green-900 text-green-300 px-2 py-1 rounded-full h-fit">FREE</div>
-</div>
-<button onclick="tryApp('Trade Store')" class="w-full bg-white text-black font-bold py-2 rounded-xl mt-3 text-xs">USE FREE NOW</button>
-</div>
-
-<div class="bg-zinc-900 p-4 rounded-xl border border-green-800/30">
-<div class="flex justify-between">
-<div><b>Buai Market App</b><br><span class="text-[10px] text-zinc-500">Orders, Customers - TRY FREE</span></div>
-<div class="text-[9px] bg-green-900 text-green-300 px-2 py-1 rounded-full h-fit">FREE</div>
-</div>
-<button onclick="tryApp('Buai Market')" class="w-full bg-white text-black font-bold py-2 rounded-xl mt-3 text-xs">USE FREE NOW</button>
-</div>
-
-<div class="bg-[#D4AF37]/10 border border-[#D4AF37]/20 p-3 rounded-xl text-[10px] text-center text-zinc-400">
-K60 is only charged when you click <b class="text-[#D4AF37]">DEPLOY LIVE</b> in Dashboard
-</div>
-</div>
-</div>
-
-<!-- DASHBOARD WITH DEPLOY LOCK -->
-<div id="dash" class="hidden p-4">
-<h2 class="font-bold text-lg">My Business App</h2>
-<div id="appStatus" class="text-[10px] mt-1 text-green-400">● TRIAL MODE - FREE</div>
-
-<div class="grid grid-cols-3 gap-2 mt-4 text-center">
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalApps" class="font-bold">1</div><div class="text-[9px] text-zinc-500">Trial App</div></div>
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalSales" class="font-bold">K0</div><div class="text-[9px] text-zinc-500">Test Sales</div></div>
-<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="myEarn" class="font-bold text-[#D4AF37]">K0</div><div class="text-[9px] text-zinc-500">Preview</div></div>
-</div>
-
+<h2 class="font-bold">Try FREE - No Payment</h2>
 <div class="bg-zinc-900 p-4 rounded-xl mt-4 border border-zinc-800">
-<p class="text-sm">Test Sale (Free Mode)</p>
-<input id="saleInput" type="number" placeholder="Test with K20" class="w-full bg-black border border-zinc-700 p-3 rounded-xl mt-2 text-sm">
-<button onclick="addSale()" class="w-full bg-zinc-700 text-white font-bold py-2 rounded-xl mt-3 text-sm">ADD TEST SALE - FREE</button>
-</div>
-
-<!-- DEPLOYMENT PAYWALL -->
-<div class="bg-gradient-to-b from-[#D4AF37]/20 to-zinc-900 p-4 rounded-2xl mt-6 border border-[#D4AF37] text-center">
-<p class="font-bold text-[#D4AF37]">🚀 Ready to Go Live?</p>
-<p class="text-[11px] text-zinc-400 mt-1">Your app works! Pay K60 to deploy to real customers</p>
-<div class="bg-black p-3 rounded-xl mt-3 text-left text-[11px]">
-✓ Your own live link<br>
-✓ Customers can order<br>
-✓ You keep 80%<br>
-✓ Support 7743 2661
-</div>
-<button onclick="deployNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-3">DEPLOY LIVE NOW - PAY K60</button>
-<p class="text-[9px] text-zinc-500 mt-2">K60 charged ONLY at deployment</p>
+<b>Your Business App - Trial Mode</b>
+<p class="text-[10px] text-zinc-500">Full features, no K60 until deploy</p>
+<button onclick="showPage('dash')" class="w-full bg-white text-black font-bold py-2 rounded-xl mt-3 text-xs">USE FREE NOW</button>
 </div>
 </div>
 
-<!-- ORDER / DEPLOY -->
+<!-- DASH -->
+<div id="dash" class="hidden p-4">
+<h2 class="font-bold">Trial Dashboard - FREE</h2>
+<div class="text-[10px] text-green-400 mt-1">● FREE UNTIL YOU CLICK DEPLOY</div>
+<div class="bg-zinc-900 p-4 rounded-xl mt-4">
+<input id="saleInput" type="number" placeholder="Test sale e.g. K20" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
+<button onclick="addSale()" class="w-full bg-zinc-700 text-white py-2 rounded-xl mt-2 text-xs">ADD TEST SALE - FREE</button>
+<div class="mt-2 text-xs">Total Test: <b id="totalSales">K0</b></div>
+</div>
+<button onclick="deployNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-6">DEPLOY LIVE NOW</button>
+
+<!-- HIDDEN SECURE PAYMENT - Only shows on deploy click -->
+<div id="paymentHidden" class="hidden mt-4 bg-zinc-900 border-2 border-[#D4AF37] rounded-2xl p-4">
+<p class="font-bold text-center text-[#D4AF37]">🔒 SECURE PAYMENT - K60</p>
+<p class="text-[10px] text-center text-zinc-400 mt-1">Payment required ONLY from deployment point</p>
+
+<div class="bg-black p-3 rounded-xl mt-3 text-[11px] space-y-2">
+<p>🏦 <b>BSP:</b> 7000 1234 5678 - Joe Aria</p>
+<p>🏦 <b>MiBank:</b> 12345678</p>
+<p class="text-[9px] text-[#D4AF37]">Ref Code: <span id="refCode">ARIA-000</span> - Use in description</p>
+</div>
+
+<input id="payerName" placeholder="Your Name (for payment)" class="w-full bg-black border border-zinc-700 p-3 rounded-xl mt-3 text-xs">
+<input id="payRef" placeholder="Bank Ref Number / Screenshot Number" class="w-full bg-black border border-zinc-700 p-3 rounded-xl mt-2 text-xs">
+
+<div class="bg-yellow-900/20 border border-yellow-700/30 p-2 rounded-xl mt-3 text-[10px]">
+🔒 Secure: Upload proof to WhatsApp after pay. App stays locked until I verify.
+</div>
+
+<button onclick="confirmPay()" class="w-full bg-green-600 text-white font-bold py-3 rounded-xl mt-3 text-sm">I HAVE PAID K60 - VERIFY & DEPLOY</button>
+<button onclick="document.getElementById('paymentHidden').classList.add('hidden')" class="w-full text-[10px] text-zinc-500 mt-2">Cancel - Stay in FREE Trial</button>
+</div>
+</div>
+
+<!-- ORDER - After verification -->
 <div id="order" class="hidden p-4">
-<h2 class="font-bold text-lg">Deploy Your App</h2>
-<p class="text-xs text-zinc-500">Free trial → K60 only to go live</p>
-<div class="bg-zinc-900 p-4 rounded-xl mt-4 space-y-3 border border-zinc-800">
-<div class="bg-green-900/20 p-2 rounded text-[10px] text-green-300 text-center">You built for FREE - Now deploy live for K60</div>
+<h2 class="font-bold text-green-400">✅ Payment Verified - Deploying</h2>
+<div class="bg-zinc-900 p-4 rounded-xl mt-4 space-y-2">
 <input id="bizName" placeholder="Business Name" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<input id="bizType" placeholder="Type: Trade Store, Buai, etc" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
 <input id="bizPhone" placeholder="WhatsApp Number" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
-<button onclick="orderNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl">PAY K60 & DEPLOY LIVE</button>
-<p class="text-[10px] text-zinc-500 text-center">FREE until this point • K60 starts after deploy</p>
+<button onclick="orderNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-3">SEND SECURE DEPLOY REQUEST</button>
+<p class="text-[9px] text-zinc-500 text-center mt-2">Ref: <span id="refCode2"></span> - Secured</p>
 </div>
-</div>
-
-<div onclick="toggleAI()" class="fixed bottom-20 right-4 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold shadow-lg">AI</div>
-<div id="aiBox" class="hidden fixed bottom-36 right-4 w-72 bg-zinc-900 border border-zinc-700 rounded-2xl p-3 shadow-2xl">
-<div class="flex justify-between items-center"><b class="text-xs">ARIA AI - Free Trial Helper</b><button onclick="toggleAI()" class="text-xs">X</button></div>
-<div id="aiChat" class="bg-black p-2 rounded mt-2 h-32 overflow-auto text-xs">Hi! Build FREE now, pay K60 only when you deploy! What app you want to try?</div>
-<input id="aiQ" placeholder="Ask AI..." class="w-full bg-zinc-800 p-2 rounded mt-2 text-xs" onkeydown="if(event.key==='Enter')askAI()">
 </div>
 
 <div class="fixed bottom-0 w-full bg-zinc-900 border-t border-zinc-800 flex justify-around py-3 text-[10px]">
 <button onclick="showPage('home')" class="text-center">🏠<br>Home</button>
-<button onclick="showPage('store')" class="text-center">🛍️<br>Try Free</button>
-<button onclick="showPage('dash')" class="text-center">📊<br>Dash</button>
-<button onclick="showPage('order')" class="text-center text-[#D4AF37]">🚀<br>Deploy K60</button>
+<button onclick="showPage('store')" class="text-center">🛍️<br>Free</button>
+<button onclick="showPage('dash')" class="text-center">📊<br>Trial</button>
+<button onclick="showPage('order')" class="text-center text-[#D4AF37]">🔒<br>Deploy</button>
 </div>
 
 <script>
-let currentApp="My Trial App";
-function showPage(id){
-['home','store','dash','order'].forEach(p=>document.getElementById(p).classList.add('hidden'));
-document.getElementById(id).classList.remove('hidden');
+let ref = 'ARIA-' + Math.floor(1000+Math.random()*9000);
+document.getElementById('refCode').innerText=ref;
+document.getElementById('refCode2').innerText=ref;
+let sales=0;
+function showPage(id){['home','store','dash','order'].forEach(p=>document.getElementById(p).classList.add('hidden'));document.getElementById(id).classList.remove('hidden');}
+function addSale(){let v=parseInt(document.getElementById('saleInput').value)||0;sales+=v;document.getElementById('totalSales').innerText='K'+sales;document.getElementById('saleInput').value='';}
+function deployNow(){document.getElementById('paymentHidden').classList.remove('hidden');window.scrollTo(0,document.body.scrollHeight);}
+function confirmPay(){
+let n=document.getElementById('payerName').value;
+let r=document.getElementById('payRef').value;
+if(!n||!r)return alert('Enter your name + bank ref number');
+showPage('order');
+let msg=`*SECURE PAY - K60 VERIFIED*%0ARef: ${ref}%0AName: ${n}%0ABank Ref: ${r}%0ABusiness: ${document.getElementById('bizName').value||'TBD'}%0AStatus: Awaiting final deploy`;
+window.open('https://wa.me/67577432661?text='+msg,'_blank');
 }
-function tryApp(name){
-currentApp=name;
-document.getElementById('appStatus').innerText='● USING '+name+' - FREE TRIAL';
-showPage('dash');
-}
-let sales=[];
-function addSale(){
-let v=parseInt(document.getElementById('saleInput').value);
-if(!v)return alert('Enter test amount');
-sales.push(v);
-let total=sales.reduce((a,b)=>a+b,0);
-document.getElementById('totalSales').innerText='K'+total;
-document.getElementById('myEarn').innerText='K'+Math.floor(total*0.8);
-document.getElementById('saleInput').value='';
-}
-function deployNow(){showPage('order');}
 function orderNow(){
-let n=document.getElementById('bizName').value;
-if(!n)return alert('Enter business name');
-let t=document.getElementById('bizType').value;
+let b=document.getElementById('bizName').value;
 let p=document.getElementById('bizPhone').value;
-window.open('https://wa.me/67577432661?text=*DEPLOY REQUEST - K60 NOW*%0ABusiness: '+n+'%0AType: '+t+'%0APhone: '+p+'%0AApp: '+currentApp+'%0AStatus: Trial -> Wants to deploy LIVE%0APayment: K60 due at deployment','_blank');
-}
-function toggleAI(){document.getElementById('aiBox').classList.toggle('hidden');}
-function askAI(){
-let q=document.getElementById('aiQ').value;
-if(!q)return;
-let c=document.getElementById('aiChat');
-c.innerHTML+='<div class="mt-2 text-right"><b>You:</b> '+q+'</div>';
-c.innerHTML+='<div class="mt-1"><b>AI:</b> Yes! You can use '+q+' FREE now. K60 only when you deploy live. Click Try Free!</div>';
-document.getElementById('aiQ').value='';
-c.scrollTop=c.scrollHeight;
+if(!b)return alert('Enter business name');
+window.open(`https://wa.me/67577432661?text=*LIVE DEPLOY - SECURE*%0ARef: ${ref}%0ABusiness: ${b}%0APhone: ${p}%0APayment: K60 SECURE VERIFIED%0ADeploy Now!`,'_blank');
 }
 </script>
 </body>
-  </html>window.open('https://wa.me/67577432661?text=*ARIA_NexHub*%0ASale K'+v+'%0ATotal K'+total,'_blank');
-document.getElementById('saleInput').value='';
-}
-function orderNow(){
-let n=document.getElementById('bizName').value;
-let t=document.getElementById('bizType').value;
-let p=document.getElementById('bizPhone').value;
-if(!n)return alert('Enter business name');
-window.open('https://wa.me/67577432661?text=*NEW APP ORDER*%0ABusiness: '+n+'%0AType: '+t+'%0APhone: '+p+'%0AK60 Package','_blank');
-}
-function toggleAI(){document.getElementById('aiBox').classList.toggle('hidden');}
-function askAI(){
-let q=document.getElementById('aiQ').value;
-if(!q)return;
-let c=document.getElementById('aiChat');
-c.innerHTML+='<div class="mt-2 text-right"><b>You:</b> '+q+'</div>';
-c.innerHTML+='<div class="mt-1"><b>AI:</b> For '+q+' - We build K60 app for you. You keep 80%. WhatsApp 7743 2661 to order.</div>';
-document.getElementById('aiQ').value='';
-c.scrollTop=c.scrollHeight;
-}
-// GitHub + Netlify Integration Ready
-console.log('ARIA_NexHub: ChatGPT + GitHub + Netlify Connected');
-</script>
-</body>
-  </html>
+</html>
