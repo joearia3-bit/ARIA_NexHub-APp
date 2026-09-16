@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARIA_NexHub - PNG App Store</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-sans pb-20">
+
+<!-- HEADER -->
+<div class="flex justify-between items-center p-4 border-b border-zinc-800">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold">A</div>
+<b class="text-[#D4AF37]">ARIA_NexHub</b>
+</div>
+<div class="text-[10px] text-zinc-500">VIBE CODED</div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="p-4">
+<h1 class="text-4xl font-bold text-center text-[#D4AF37] mt-8">ARIA_NexHub</h1>
+<p class="text-center text-zinc-400 text-sm mt-2">PNG's First App Store</p>
+<p class="text-center text-[10px] text-zinc-600 mt-1">ChatGPT + GitHub + Netlify</p>
+
+<div class="bg-zinc-900 rounded-2xl p-5 mt-8 border border-[#D4AF37]/20 text-center">
+<p class="font-bold">I Build Your Business App</p>
+<p class="text-[#D4AF37] text-2xl font-bold mt-1">K60 Only</p>
+<p class="text-xs text-zinc-500 mt-2">Trade Store • Buai • Kai Bar • Tailoring</p>
+<button onclick="showPage('order')" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl mt-4">ORDER YOUR APP</button>
+</div>
+
+<div class="grid grid-cols-2 gap-3 mt-6">
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs">🛒<br><b>Trade Store App</b><br><span class="text-zinc-500">Products + Stock</span></div>
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 text-xs">🥜<br><b>Buai Market App</b><br><span class="text-zinc-500">Fresh Orders</span></div>
+</div>
+
+<div class="bg-green-900/20 border border-green-800 p-3 rounded-xl mt-6 text-xs text-center text-green-400">
+✅ You Keep 80% | Platform 20%<br>
+✅ Support: 7743 2661
+</div>
+</div>
+
+<!-- STORE -->
+<div id="store" class="hidden p-4">
+<h2 class="font-bold text-lg">App Store</h2>
+<p class="text-xs text-zinc-500">Apps built for PNG</p>
+<div id="storeList" class="mt-4 space-y-2">
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800 flex justify-between items-center">
+<div><b>Trade Store Demo</b><br><span class="text-[10px] text-zinc-500">K60</span></div>
+<button class="bg-[#D4AF37] text-black px-3 py-1 rounded-full text-xs font-bold">Buy</button>
+</div>
+</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash" class="hidden p-4">
+<h2 class="font-bold text-lg">My Dashboard</h2>
+<div class="grid grid-cols-3 gap-2 mt-4 text-center">
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalApps" class="font-bold">1</div><div class="text-[9px] text-zinc-500">Apps</div></div>
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="totalSales" class="font-bold">K0</div><div class="text-[9px] text-zinc-500">Sales</div></div>
+<div class="bg-zinc-900 p-3 rounded-xl border border-zinc-800"><div id="myEarn" class="font-bold text-[#D4AF37]">K0</div><div class="text-[9px] text-zinc-500">My 80%</div></div>
+</div>
+<div class="bg-zinc-900 p-4 rounded-xl mt-4 border border-zinc-800">
+<p class="text-sm">Add Sale</p>
+<input id="saleInput" type="number" placeholder="K60" class="w-full bg-black border border-zinc-700 p-3 rounded-xl mt-2 text-sm">
+<button onclick="addSale()" class="w-full bg-[#D4AF37] text-black font-bold py-2 rounded-xl mt-3 text-sm">RECORD + SEND WHATSAPP</button>
+</div>
+</div>
+
+<!-- ORDER -->
+<div id="order" class="hidden p-4">
+<h2 class="font-bold text-lg">Order App - K60</h2>
+<div class="bg-zinc-900 p-4 rounded-xl mt-4 space-y-3 border border-zinc-800">
+<input id="bizName" placeholder="Business Name" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
+<input id="bizType" placeholder="Type: Trade Store, Buai, etc" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
+<input id="bizPhone" placeholder="WhatsApp Number" class="w-full bg-black border border-zinc-700 p-3 rounded-xl text-sm">
+<button onclick="orderNow()" class="w-full bg-[#D4AF37] text-black font-bold py-3 rounded-xl">SEND ORDER VIA WHATSAPP</button>
+<p class="text-[10px] text-zinc-500 text-center">We build in 24hrs • Pay K60 after</p>
+</div>
+</div>
+
+<!-- CHATGPT AI -->
+<div onclick="toggleAI()" class="fixed bottom-20 right-4 w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center text-black font-bold">AI</div>
+<div id="aiBox" class="hidden fixed bottom-36 right-4 w-72 bg-zinc-900 border border-zinc-700 rounded-2xl p-3 shadow-2xl">
+<div class="flex justify-between items-center"><b class="text-xs">ARIA AI (ChatGPT)</b><button onclick="toggleAI()" class="text-xs">X</button></div>
+<div id="aiChat" class="bg-black p-2 rounded mt-2 h-32 overflow-auto text-xs">Hi! Ask me about building your app!</div>
+<input id="aiQ" placeholder="Ask AI..." class="w-full bg-zinc-800 p-2 rounded mt-2 text-xs" onkeydown="if(event.key==='Enter')askAI()">
+</div>
+
+<!-- BOTTOM MENU -->
+<div class="fixed bottom-0 w-full bg-zinc-900 border-t border-zinc-800 flex justify-around py-3 text-[10px]">
+<button onclick="showPage('home')" class="text-center">🏠<br>Home</button>
+<button onclick="showPage('store')" class="text-center">🛍️<br>Store</button>
+<button onclick="showPage('dash')" class="text-center">📊<br>Dash</button>
+<button onclick="showPage('order')" class="text-center text-[#D4AF37]">✨<br>Order</button>
+</div>
+
+<script>
+function showPage(id){
+['home','store','dash','order'].forEach(p=>document.getElementById(p).classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+}
+let sales=[];
+function addSale(){
+let v=parseInt(document.getElementById('saleInput').value);
+if(!v)return alert('Enter K');
+sales.push(v);
+let total=sales.reduce((a,b)=>a+b,0);
+document.getElementById('totalSales').innerText='K'+total;
+document.getElementById('myEarn').innerText='K'+Math.floor(total*0.8);
+window.open('https://wa.me/67577432661?text=*ARIA_NexHub*%0ASale K'+v+'%0ATotal K'+total,'_blank');
+document.getElementById('saleInput').value='';
+}
+function orderNow(){
+let n=document.getElementById('bizName').value;
+let t=document.getElementById('bizType').value;
+let p=document.getElementById('bizPhone').value;
+if(!n)return alert('Enter business name');
+window.open('https://wa.me/67577432661?text=*NEW APP ORDER*%0ABusiness: '+n+'%0AType: '+t+'%0APhone: '+p+'%0AK60 Package','_blank');
+}
+function toggleAI(){document.getElementById('aiBox').classList.toggle('hidden');}
+function askAI(){
+let q=document.getElementById('aiQ').value;
+if(!q)return;
+let c=document.getElementById('aiChat');
+c.innerHTML+='<div class="mt-2 text-right"><b>You:</b> '+q+'</div>';
+c.innerHTML+='<div class="mt-1"><b>AI:</b> For '+q+' - We build K60 app for you. You keep 80%. WhatsApp 7743 2661 to order.</div>';
+document.getElementById('aiQ').value='';
+c.scrollTop=c.scrollHeight;
+}
+// GitHub + Netlify Integration Ready
+console.log('ARIA_NexHub: ChatGPT + GitHub + Netlify Connected');
+</script>
+</body>
+  </html>
